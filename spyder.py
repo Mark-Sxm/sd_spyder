@@ -7,11 +7,11 @@ import urllib3
 BASE_URL = 'http://www.shangdejy.com'
 content = requests.get(BASE_URL + '/SiteFiles/Inner/page.aspx?s=1').content.decode('utf8')
 bs = BeautifulSoup(content, 'html.parser')
-img_tags = bs.find_all('img')
+'''img_tags = bs.find_all('img')
 img_link = []
 for each in img_tags:
     img_link.append(str(each).split('src="')[1].split('"')[0])
-'''for each in img_link:
+for each in img_link:
     raw_img = requests.get(BASE_URL + each).content
     file_name = each.split('/')[len(each.split('/')) - 1]
     with open(os.getcwd() + '/' + file_name, 'wb') as f:
@@ -28,7 +28,7 @@ for each in news_tags:
 news_links = news_links[1:]
 news_title = news_title[1:]
 index = 0
-HTML_TEMPLATE = requests.get()
+HTML_TEMPLATE = requests.get('https://raw.githubusercontent.com/leon332157/sd_spyder/master/raw_html.html').content
 for each in news_links:
     each = each.replace(';', '').replace('amp', '')
     wx_link = requests.get(BASE_URL + each).url
