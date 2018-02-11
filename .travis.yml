@@ -1,0 +1,13 @@
+language: python
+python:
+    - "3.4"
+    - "3.5"
+    - "3.6"
+    - "nightly"
+script:
+    - python3 spyder.py
+install:
+    - pip3 install bs4
+    - pip3 install requests
+os:
+   - linux
