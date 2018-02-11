@@ -28,7 +28,8 @@ for each in news_tags:
 news_links = news_links[1:]
 news_title = news_title[1:]
 index = 0
-HTML_TEMPLATE = requests.get('https://raw.githubusercontent.com/leon332157/sd_spyder/master/raw_html.html').content
+HTML_TEMPLATE = str(
+    requests.get('https://raw.githubusercontent.com/leon332157/sd_spyder/master/html_template.html').content)
 for each in news_links:
     each = each.replace(';', '').replace('amp', '')
     wx_link = requests.get(BASE_URL + each).url
